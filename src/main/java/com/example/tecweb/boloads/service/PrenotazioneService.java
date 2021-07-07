@@ -2,8 +2,7 @@ package com.example.tecweb.boloads.service;
 
 import com.example.tecweb.boloads.dto.PrenotazioneDTO;
 
-import com.example.tecweb.boloads.model.prenotazione.Prenotazione;
-import com.example.tecweb.boloads.model.prenotazione.PrenotazioneKey;
+import com.example.tecweb.boloads.model.Prenotazione;
 import com.example.tecweb.boloads.repository.PrenotazioneDAO;
 import com.example.tecweb.boloads.repository.PrenotazioneRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -28,17 +27,15 @@ public class PrenotazioneService implements IPrenotazioneService {
     }
 
     @Override
-    public Prenotazione create(PrenotazioneDTO prenotazioneDTO) {
-        PrenotazioneKey prenotazioneKey = new PrenotazioneKey(prenotazioneDTO);
-        Prenotazione prenotazione = new Prenotazione(prenotazioneKey);
+    public Prenotazione create(Prenotazione prenotazione) {
         return prenotazioneRepository.save(prenotazione);
     }
 
     @Override
-    public Prenotazione retrieve(PrenotazioneDTO prenotazioneDTO) {
+    public Prenotazione retrieve(Prenotazione prenotazione) {
 
-            PrenotazioneKey prenotazioneKey = new PrenotazioneKey(prenotazioneDTO);
-            return prenotazioneRepository.getById(prenotazioneKey);
+
+            return prenotazioneRepository.getById(prenotazione.getId());
 
 
 
@@ -46,21 +43,18 @@ public class PrenotazioneService implements IPrenotazioneService {
 
     public List<Prenotazione> retrievePrenotazioniByCartelloneId(Long cartelloneId) {
 
-        PrenotazioneDTO prenotazioneDTO = new PrenotazioneDTO();
-        prenotazioneDTO.setCartelloneId(cartelloneId);
-        return prenotazioneDAO.retrievePrenotazioni(prenotazioneDTO);
+        return prenotazioneDAO.retrievePrenotazioni(cartelloneId);
     }
 
     @Override
-    public Prenotazione update(PrenotazioneDTO prenotazioneDTO) {
+    public Prenotazione update(Prenotazione prenotazione) {
 
-        PrenotazioneKey prenotazioneKey = new PrenotazioneKey(prenotazioneDTO);
-        Prenotazione prenotazione = new Prenotazione(prenotazioneKey);
+
         return prenotazioneRepository.save(prenotazione);
     }
 
     @Override
-    public void delete(PrenotazioneDTO prenotazioneDTO) {
-        prenotazioneRepository.deleteById(new PrenotazioneKey(prenotazioneDTO));
+    public void delete(Prenotazione prenotazione) {
+        prenotazioneRepository.deleteById(prenotazione.getId());
     }
 }

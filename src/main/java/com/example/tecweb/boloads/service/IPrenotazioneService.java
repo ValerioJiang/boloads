@@ -2,7 +2,7 @@ package com.example.tecweb.boloads.service;
 
 import com.example.tecweb.boloads.dto.PrenotazioneDTO;
 
-import com.example.tecweb.boloads.model.prenotazione.Prenotazione;
+import com.example.tecweb.boloads.model.Prenotazione;
 
 
 import java.util.List;
@@ -11,14 +11,14 @@ public interface IPrenotazioneService {
 
     List<Prenotazione> list();
 
-    Prenotazione create(PrenotazioneDTO prenotazioneDTO);
+    Prenotazione create(Prenotazione prenotazione);
 
-    Prenotazione retrieve(PrenotazioneDTO PrenotazioneDTO);
+    Prenotazione retrieve(Prenotazione Prenotazione);
 
     public List<Prenotazione> retrievePrenotazioniByCartelloneId(Long cartelloneId);
 
-    Prenotazione update(PrenotazioneDTO PrenotazioneDTO);
+    Prenotazione update(Prenotazione Prenotazione);
 
-    void delete(PrenotazioneDTO PrenotazioneDTO);
+    void delete(Prenotazione Prenotazione);
 
 }

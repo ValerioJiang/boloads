@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Per semplicità un contenuto al giorno per cartellone
@@ -34,5 +35,9 @@ public class Contenuto {
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
+    @OneToMany(mappedBy = "contenuto")
+    @JsonIgnore
+    private List<Prenotazione> prenotazione;
 
 }

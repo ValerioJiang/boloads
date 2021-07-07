@@ -2,8 +2,7 @@ package com.example.tecweb.boloads.controller;
 
 
 import com.example.tecweb.boloads.dto.PrenotazioneDTO;
-import com.example.tecweb.boloads.model.prenotazione.Prenotazione;
-import com.example.tecweb.boloads.model.prenotazione.PrenotazioneKey;
+import com.example.tecweb.boloads.model.Prenotazione;
 import com.example.tecweb.boloads.service.IPrenotazioneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,17 +30,17 @@ public class PrenotazioneController {
      * CREATE
      */
     @PostMapping("/create")
-    public Prenotazione create(@RequestBody PrenotazioneDTO prenotazioneDTO
+    public Prenotazione create(@RequestBody Prenotazione prenotazione
     ){
-        return prenotazioneService.create(prenotazioneDTO);
+        return prenotazioneService.create(prenotazione);
     }
 
     /**
      * RETRIEVE
      */
     @GetMapping("/retrieve")
-    public Prenotazione retrieve(@RequestBody PrenotazioneDTO prenotazioneDTO){
-        return prenotazioneService.retrieve(prenotazioneDTO);
+    public Prenotazione retrieve(@RequestBody Prenotazione prenotazione){
+        return prenotazioneService.retrieve(prenotazione);
     }
 
     @GetMapping("/retrieveByCartelloneId/{cartelloneId}")
@@ -53,15 +52,15 @@ public class PrenotazioneController {
      * UPDATE
      */
     @PutMapping("/update")
-    public Prenotazione update(@RequestBody PrenotazioneDTO prenotazioneDTO){
-        return prenotazioneService.update(prenotazioneDTO);
+    public Prenotazione update(@RequestBody Prenotazione prenotazione){
+        return prenotazioneService.update(prenotazione);
     }
 
     /**
      * DELETE
      */
     @DeleteMapping("/delete}")
-    public void delete(@RequestBody PrenotazioneDTO prenotazioneDTO){
-        prenotazioneService.delete(prenotazioneDTO);
+    public void delete(@RequestBody Prenotazione prenotazione){
+        prenotazioneService.delete(prenotazione);
     }
 }

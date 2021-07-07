@@ -1,5 +1,6 @@
 package com.example.tecweb.boloads.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,16 +25,8 @@ public class Cartellone {
     @Column(name = "altezza", columnDefinition="Decimal(8,2)")
     private BigDecimal altezza;
 
-
-
     @Column(name = "condizione")
     private String condizione;
-
-    @Column(name = "tipologia")
-    private String tipologia;
-
-    @Column(name = "immagine_path")
-    private String immaginePath;
 
     @Column(name = "indirizzo")
     private String indirizzo;
